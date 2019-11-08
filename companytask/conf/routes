@@ -4,7 +4,17 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+GET     /company                           controllers.CompanyController.company
+GET     /company/add                       controllers.CompanyController.getCreateForm
++ nocsrf
+POST    /company/add                       controllers.CompanyController.createCompany
+
+GET     /employee                          controllers.EmployeeController.employee
+GET     /employee/add            controllers.EmployeeController.getEmployeeForm(companyId: Long)
+
++ nocsrf
+POST    /employee/add                      controllers.EmployeeController.createEmployee
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

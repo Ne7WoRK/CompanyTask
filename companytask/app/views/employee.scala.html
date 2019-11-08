@@ -1,0 +1,27 @@
+@(employeeForm: Form[model.AddEmployeeForm], employees : Seq[model.Employee])(implicit request: RequestHeader)
+@main("All employees"){
+
+<div id="table">
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th class="th-sm">ID</th>
+            <th class="th-sm">Name</th>
+            <th class="th-sm">E-mail</th>
+            <th class="th-sm">Company</th>
+        </tr>
+        @for(employee <- employees) {
+        </thead>
+        <tbody>
+        <tr>
+            <td>@employee.id</td>
+            <td>@employee.name</td>
+            <td>@employee.email</td>
+            <td>@employee.company</td>
+
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>
+}

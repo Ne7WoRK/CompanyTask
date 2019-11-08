@@ -1,0 +1,20 @@
+@(companyForm: Form[model.AddCompanyForm])(implicit request: RequestHeader)
+@main("Add Company"){
+
+<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/addCompany.css")'>
+
+<div class="container">
+    <form id="contact" role="form" action='@routes.CompanyController.createCompany()' method="post">
+        <fieldset>
+            <input placeholder="Company name" name="name" id="name" type="text" tabindex="1" required autofocus>
+        </fieldset>
+
+        <fieldset>
+            <input placeholder="Company address" id="address" name="address" type="text" tabindex="2" required>
+        </fieldset>
+
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Add Company</button>
+    </form>
+</div>
+
+}

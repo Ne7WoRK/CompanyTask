@@ -1,0 +1,25 @@
+
+//change  this count when changing employees
+create table `company` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(255),
+  `numberOfEmployees` INT,
+  `address` VARCHAR(255),
+)
+
+
+//when you click addemployee you chose which company to add to ...
+create table `employee` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255),
+    `email` VARCHAR(255),
+    `company_id` BIGINT,
+    FOREIGN KEY (company_id) REFERENCES company(id)
+)
+
+
+1. Now show number of employees as follows:
+(SELECT * WHERE employee.company==company.id): Int
+
+2. Show employee company in employee table
+(SELECT company.name WHERE employee.company==company.id):String

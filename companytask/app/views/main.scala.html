@@ -1,0 +1,33 @@
+@(title:String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@title</title>
+    <script type="text/javascript" src=https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js></script>
+
+    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("bootstrap/css/bootstrap.css")'>
+    <script type="text/javascript" src='@routes.Assets.versioned("bootstrap/js/bootstrap.js")'></script>
+
+    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
+    <script type="text/javascript" src='@routes.Assets.versioned("javascripts/main.js")'></script>
+
+</head>
+<body>
+
+<div id="navbar">
+    <nav>
+        <div class="nav-fostrap">
+            <ul>
+                <li><a href="@routes.CompanyController.company">Company</a></li>
+                <li><a href="@routes.CompanyController.getCreateForm">Add Company</a></li>
+                <li><a href="@routes.EmployeeController.employee">Employees</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<section class="content">@content</section>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+@import model.Company
+
+@(errorForm: Form[model.AddEmployeeForm], company: Company)(implicit request: RequestHeader)
+@main("Add Employee"){
+
+<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/addCompany.css")'>
+
+<div class="container">
+    <h1>Create new employee for company @company.name</h1>
+
+    <form id="contact" role="form" action='@routes.EmployeeController.createEmployee' method="post">
+        <fieldset>
+            <input placeholder="Name" name="name" id="name" type="text" tabindex="1" required autofocus
+                value="@{errorForm.data.get("name").getOrElse("")}">
+        </fieldset>
+
+        <fieldset>
+            <input placeholder="E-mail" id="email" name="email" type="text" tabindex="2" required
+            value="@{errorForm.data.get("email").getOrElse("")}">
+        </fieldset>
+
+        <fieldset>
+            <input name="company_id" type="hidden" value="@company.id">
+        </fieldset>
+
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Add Employee</button>
+
+        @for(error <- errorForm.errors) {
+            <p>@error</p>
+        }
+    </form>
+</div>
+
+}
